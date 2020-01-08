@@ -7,26 +7,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "TB_Role")
+@ToString
 public class Role implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2940441040734802982L;
-
-	/**
-	 * 
-	 */
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,4 +37,8 @@ public class Role implements Serializable {
 
 	@Column(name = "active")
 	boolean active;
+
+	@ManyToOne
+	@JoinColumn(columnDefinition = "user_id")
+	private MyUser user;
 }

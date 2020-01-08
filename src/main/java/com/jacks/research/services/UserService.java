@@ -2,9 +2,11 @@ package com.jacks.research.services;
 
 import java.util.List;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import com.jacks.research.model.MyUser;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
 	MyUser saveUser(MyUser user);
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<title>Index stage</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<style type="text/css">
+		.selectorBtn {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="container pt-5">
+		<a href="/createSelector" class="selectorBtn"><button class="btn btn-sm btn-block eNew">New Tier</button></a>
+	</div>
+	<script type="text/javascript">
+		$(".selectorBtn").on("click", function(event) {
+			event.preventDefault();
+			$.get("createSelector", function( data ) {
+				 alert( "Load was performed." );
+			});
+		});
+	</script>
+
+</body>
+</html>
